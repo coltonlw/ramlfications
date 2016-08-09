@@ -58,10 +58,11 @@ def parse_properties(properties):
     # @todo: should parse k for syntax sugar
     if not properties:
         return None
-    return OrderedDict([
-        (k, create_property(v)) \
-        if v is not None \
-        for k, v in iteritems(properties)])
+    parsed_properties_list = []
+    for prop_key, prop_value in iteritems(properties):
+        if v is not None:
+            parsed_properties_list.append((k, create_property(v)))
+        return OrderedDict(parsed_properties_list)
 
 
 # <- TO CLEAN
