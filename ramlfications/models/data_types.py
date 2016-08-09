@@ -60,6 +60,7 @@ def parse_properties(properties):
         return None
     return OrderedDict([
         (k, create_property(v))
+        if v is not None
         for k, v in iteritems(properties)])
 
 
